@@ -17,7 +17,7 @@ class Location( models.Model ):
 
 
 class Image( models.Model ):
-    image=models.ImageField( upload_to='picture/' , )
+    image=models.ImageField( upload_to='images/' , )
     name=models.CharField( max_length=40 )
     user=models.ForeignKey( User , on_delete=models.CASCADE , blank=True , related_name="images" )
     description=models.TextField( )
@@ -170,7 +170,7 @@ class Business( models.Model ):
 
 class Project( models.Model ):
     title=models.TextField( max_length=200 , null=True , blank=True , default="title" )
-    project_image=models.ImageField( upload_to='picture/' , null=True , blank=True )
+    project_image=models.ImageField( upload_to='project/' , null=True , blank=True )
     description=models.TextField( )
     user=models.ForeignKey( User , on_delete=models.CASCADE , related_name="neighbourhoodproject" , null=True ,
                             blank=True )
