@@ -262,7 +262,7 @@ class Project( models.Model ):
                             blank=True )
     neighbourhood=models.ForeignKey( Neighbourhood , on_delete=models.CASCADE , related_name="neighbourhoodproject" ,
                                      null=True , blank=True )
-    postDate=models.DateTimeField( auto_now_add=True )
+    postDate=models.DateTimeField( auto_now_add=True default=False)
     location=models.ForeignKey( Location , on_delete=models.CASCADE,null=True )
     comment=models.ForeignKey( Comments ,on_delete=models.CASCADE, null=True )
     profile=models.ForeignKey( Profile , on_delete=models.CASCADE,null=True )
