@@ -2,13 +2,24 @@ from django.db import models
 from django.contrib.auth.models import User
 
 # Create your models here.
+class Location(models.Model):
+    name = models.CharField(max_length=30)
+
+    def save_location(self):
+        self.save()
+
+    def delete_location(self):
+        self.delete()
+
+    def __str__(self):
+        return self.name
+
 class Image(models.Model):
     image = models.ImageField(upload_to='picture/', )
     name = models.CharField(max_length=40)
     user = models.ForeignKey(User, on_delete=models.CASCADE, blank=True, related_name="images")
     description = models.TextField()
     location = models.ForeignKey(Location, null=True)
-    tags = models.ManyToManyField(tags, blank=True)
     likes = models.IntegerField(default=0)
     comments = models.TextField(blank=True)
 
@@ -55,16 +66,16 @@ class Image(models.Model):
 
 class Neighbourhood(models.Model):
     CITY_CHOICES = (
-        ('London', 'London'),
-        ('Liverpool', 'Liverpool'),
-        ('Sheffield', 'Sheffield'),
-        ('Manchester', 'Manchester'),
-        ('Leeds', 'Leeds'),
-        ('Nottingham', 'Nottingham'),
-        ('Brighton', 'Brighton'),
-        ('Bristol', 'Bristol'),
-        ('Oxford', 'Oxford'),
-        ('Cambridge', 'Cambridge'),
+        ('Nairobi', 'Nairobi'),
+        ('Machakos', 'Machakos'),
+        ('KItui', 'KItui'),
+        ('Garissa', 'Garissa'),
+        ('Mombasa', 'Mombasa'),
+        ('Malindi', 'Malindi'),
+        ('Kisumu', 'Kisumu'),
+        ('Migori', 'Migori'),
+        ('Kakamega', 'Kakamega'),
+        ('Uasingishu', 'Uasingishu'),
 
     )
 
@@ -158,18 +169,6 @@ class Project(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE,related_name="neighbourhoodproject",null=True,blank=True)
     neighbourhood = models.ForeignKey(Neighbourhood, on_delete=models.CASCADE,related_name="neighbourhoodproject",null=True,blank=True)
 
-    def average_design(self):
-        design_ratings = list(map(lambda x: x.design_rating, self.reviews.all()))
-        return np.mean(design_ratings)
-
-    def average_usability(self):
-        usability_ratings = list(map(lambda x: x.usability_rating, self.reviews.all()))
-        return np.mean(usability_ratings)
-
-    def average_content(self):
-        content_ratings = list(map(lambda x: x.content_rating, self.reviews.all()))
-        return np.mean(content_ratings)
-
     def save_project(self):
         self.save()
 
@@ -215,9 +214,6 @@ class Profile(models.Model):
     def create_user_profile(sender, instance, created, **kwargs):
         if created:
             Profile.objects.create(user=instance)
-
-    post_save.connect(create_user_profile, sender=User)
-
     def save_profile(self):
         self.save()
 
@@ -272,3 +268,5 @@ class Review(models.Model):
 class NewsLetterRecipients(models.Model):
     name = models.CharField(max_length=30)
     email = models.EmailField()
+
+
