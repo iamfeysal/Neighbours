@@ -127,9 +127,9 @@ class Neighbourhood( models.Model ):
 class Business( models.Model ):
     business_name=models.CharField( max_length=30 , null=True )
     user=models.ForeignKey( User , on_delete=models.CASCADE , null=True , related_name="business" )
-    neighbourhood_id=models.ForeignKey( Neighbourhood , on_delete=models.CASCADE ,
+    neighbourhood=models.ForeignKey( Neighbourhood , on_delete=models.CASCADE ,
                                         related_name="neighbourhoodbusiness" , null=True , blank=True )
-    business_email_address=models.CharField( max_length=200 , null=True )
+    email_address=models.CharField( max_length=200 , null=True )
 
     def __str__(self):
         return self.business_name
@@ -168,14 +168,6 @@ class Business( models.Model ):
         return businesses
 
 
-class Project( models.Model ):
-    title=models.TextField( max_length=200 , null=True , blank=True , default="title" )
-    project_image=models.ImageField( upload_to='project/' , null=True , blank=True )
-    description=models.TextField( )
-    user=models.ForeignKey( User , on_delete=models.CASCADE , related_name="neighbourhoodproject" , null=True ,
-                            blank=True )
-    neighbourhood=models.ForeignKey( Neighbourhood , on_delete=models.CASCADE , related_name="neighbourhoodproject" ,
-                                     null=True , blank=True )
 
     def save_project(self):
         self.save( )
@@ -296,3 +288,20 @@ class Comments( models.Model ):
 
     def __str__(self):
         return self.comment
+
+class Project( models.Model ):
+    title=models.TextField( max_length=200 , null=True , blank=True , default="title" )
+    project_image=models.ImageField( upload_to='project/' , null=True , blank=True )
+    description=models.TextField( )
+    user=models.ForeignKey( User , on_delete=models.CASCADE , related_name="neighbourhoodproject" , null=True ,
+                            blank=True )
+    neighbourhood=models.ForeignKey( Neighbourhood , on_delete=models.CASCADE , related_name="neighbourhoodproject" ,
+                                     null=True , blank=True )
+    postDate=models.DateTimeField( auto_now_add=True )
+    location=models.ForeignKey( Location , on_delete=models.CASCADE,null=True )
+    comment=models.ForeignKey( Comments ,on_delete=models.CASCADE, null=True )
+    profile=models.ForeignKey( Profile , on_delete=models.CASCADE,null=True )
+    review=models.ForeignKey( Review , on_delete=models.CASCADE,null=True )
+
+
+
