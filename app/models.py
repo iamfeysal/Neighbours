@@ -169,71 +169,6 @@ class Business( models.Model ):
 
 
 
-    def save_project(self):
-        self.save( )
-
-    @classmethod
-    def delete_project_by_id(cls , id):
-        projects=cls.objects.filter( pk=id )
-        projects.delete( )
-
-    @classmethod
-    def get_project_by_id(cls , id):
-        projects=cls.objects.get( pk=id )
-        return projects
-
-    @classmethod
-    def search_projects(cls , search_term):
-        projects=cls.objects.filter( title__icontains=search_term )
-        return projects
-
-    @classmethod
-    def update_project(cls , id):
-        projects=cls.objects.filter( id=id ).update( id=id )
-        return projects
-
-    @classmethod
-    def update_description(cls , id):
-        projects=cls.objects.filter( id=id ).update( id=id )
-        return projects
-
-    def __str__(self):
-        return self.title
-
-
-class Profile( models.Model ):
-    bio=models.TextField( max_length=200 , null=True , blank=True , default="bio" )
-    profile_pic=models.ImageField( upload_to='picture/' , null=True , blank=True , default=0 )
-    user=models.OneToOneField( User , on_delete=models.CASCADE , null=True , related_name="profile" )
-    project=models.ForeignKey( Project , null=True )
-    email=models.TextField( max_length=200 , null=True , blank=True , default=0 )
-    neighbourhood_id=models.ForeignKey( Neighbourhood , on_delete=models.CASCADE , related_name="neighbourhood" ,
-                                        null=True , blank=True )
-
-    def create_user_profile(sender , instance , created , **kwargs):
-        if created:
-            Profile.objects.create( user=instance )
-
-    def save_profile(self):
-        self.save( )
-
-    def delete_profile(self):
-        self.delete( )
-
-    @classmethod
-    def search_users(cls , search_term):
-        profiles=cls.objects.filter( user__username__icontains=search_term )
-        return profiles
-
-    @property
-    def image_url(self):
-        if self.profile_pic and hasattr( self.profile_pic , 'url' ):
-            return self.profile_pic.url
-
-    def __str__(self):
-        return self.user.username
-
-
 class Review( models.Model ):
     RATING_CHOICES=(
         (1 , '1') ,
@@ -248,7 +183,6 @@ class Review( models.Model ):
         (10 , '10') ,
 
     )
-    project=models.ForeignKey( Project , null=True , blank=True , on_delete=models.CASCADE , related_name="reviews" )
     user=models.ForeignKey( User , null=True , blank=True , on_delete=models.CASCADE , related_name='reviews' )
     image=models.ForeignKey( Image , on_delete=models.CASCADE , related_name="reviews" , null=True , blank=True )
     comment=models.TextField( )
@@ -278,8 +212,6 @@ class Comments( models.Model ):
 	'''
     comment=models.CharField( max_length=600 )
     user=models.ForeignKey( User )
-    project=models.ForeignKey( Project )
-
     def save_comment(self):
         self.save( )
 
@@ -288,6 +220,39 @@ class Comments( models.Model ):
 
     def __str__(self):
         return self.comment
+
+
+class Profile( models.Model ):
+    bio=models.TextField( max_length=200 , null=True , blank=True , default="bio" )
+    profile_pic=models.ImageField( upload_to='picture/' , null=True , blank=True , default=0 )
+    user=models.OneToOneField( User , on_delete=models.CASCADE , null=True , related_name="profile" )
+    email=models.TextField( max_length=200 , null=True , blank=True , default=0 )
+    neighbourhood_id=models.ForeignKey( Neighbourhood , on_delete=models.CASCADE , related_name="neighbourhood" ,
+                                        null=True , blank=True )
+
+    def create_user_profile(sender , instance , created , **kwargs):
+        if created:
+            Profile.objects.create( user=instance )
+
+    def save_profile(self):
+        self.save( )
+
+    def delete_profile(self):
+        self.delete( )
+
+    @classmethod
+    def search_users(cls , search_term):
+        profiles=cls.objects.filter( user__username__icontains=search_term )
+        return profiles
+
+    @property
+    def image_url(self):
+        if self.profile_pic and hasattr( self.profile_pic , 'url' ):
+            return self.profile_pic.url
+
+    def __str__(self):
+        return self.user.username
+
 
 class Project( models.Model ):
     title=models.TextField( max_length=200 , null=True , blank=True , default="title" )
@@ -302,6 +267,37 @@ class Project( models.Model ):
     comment=models.ForeignKey( Comments ,on_delete=models.CASCADE, null=True )
     profile=models.ForeignKey( Profile , on_delete=models.CASCADE,null=True )
     review=models.ForeignKey( Review , on_delete=models.CASCADE,null=True )
+
+ def save_project(self):
+        self.save( )
+
+    @classmethod
+    def delete_project_by_id(cls , id):
+        projects=cls.objects.filter( pk=id )
+        projects.delete( )
+
+    @classmethod
+    def get_project_by_id(cls , id):
+        projects=cls.objects.get( pk=id )
+        return projects
+
+    @classmethod
+    def search_projects(cls , search_term):
+        projects=cls.objects.filter( title__icontains=search_term )
+        return projects
+
+    @classmethod
+    def update_project(cls , id):
+        projects=cls.objects.filter( id=id ).update( id=id )
+        return projects
+
+    @classmethod
+    def update_description(cls , id):
+        projects=cls.objects.filter( id=id ).update( id=id )
+        return projects
+
+    def __str__(self):
+        return self.title
 
 
 
