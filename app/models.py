@@ -271,20 +271,20 @@ class Project( models.Model ):
  def save_project(self):
         self.save( )
 
-    @classmethod
-    def delete_project_by_id(cls , id):
-        projects=cls.objects.filter( pk=id )
-        projects.delete( )
+@classmethod
+def delete_project_by_id(cls , id):
+    projects=cls.objects.filter( pk=id )
+    projects.delete( )
 
-    @classmethod
-    def get_project_by_id(cls , id):
-        projects=cls.objects.get( pk=id )
-        return projects
+@classmethod
+def get_project_by_id(cls , id):
+    projects=cls.objects.get( pk=id )
+    return projects
 
-    @classmethod
-    def search_projects(cls , search_term):
-        projects=cls.objects.filter( title__icontains=search_term )
-        return projects
+@classmethod
+def search_projects(cls , search_term):
+    projects=cls.objects.filter( title__icontains=search_term )
+    return projects
 
     @classmethod
     def update_project(cls , id):
