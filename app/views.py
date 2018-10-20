@@ -9,7 +9,7 @@ from .models import *
 
 # Create your views here.
 class IndexView(generic.ListView):
-    template_name = 'index.html'
+    template_name = 'Hood/index.html'
     context_object_name = 'Neighbourhood'
 
     def get_queryset(self):
