@@ -10,10 +10,12 @@ from .models import *
 # Create your views here.
 class IndexView(generic.ListView):
     template_name = 'Hood/index.html'
-    context_object_name = 'Neighbourhood'
+    context_object_name = 'all_project'
 
     def get_queryset(self):
-        return Neighbourhood.objects.all( )
-
+        return Project.objects.all( )
+class DetailView(generic.DetailView):
+    model = Project
+    template_name = 'Hood/detail.html'
 
 
