@@ -1,5 +1,8 @@
 from django.db import models
 from django.contrib.auth.models import User
+import datetime as dt
+from tinymce.models import HTMLField
+from django.core.urlresolvers import reverse
 
 
 # Create your models here.
@@ -201,11 +204,6 @@ class Review( models.Model ):
         return self.comment
 
 
-class NewsLetterRecipients( models.Model ):
-    name=models.CharField( max_length=30 )
-    email=models.EmailField( )
-
-
 class Comments( models.Model ):
     '''
 	Model will handle comments made to a post resource
@@ -221,18 +219,17 @@ class Comments( models.Model ):
     def __str__(self):
         return self.comment
 
-
 class Profile( models.Model ):
-    bio=models.TextField( max_length=200 , null=True , blank=True , default="bio" )
-    profile_pic=models.ImageField( upload_to='picture/' , null=True , blank=True , default=0 )
-    user=models.OneToOneField( User , on_delete=models.CASCADE , null=True , related_name="profile" )
+    objects=None
+    profilePic=models.ImageField( upload_to='profile/' , null=True , blank=True )
+    contact=HTMLField(max_length=60,null=True  )
+    bio=models.CharField( max_length=60 , blank=True )
+    user=models.ForeignKey( User , on_delete=models.CASCADE,related_name='profile',null=True )
     email=models.TextField( max_length=200 , null=True , blank=True , default=0 )
-    neighbourhood_id=models.ForeignKey( Neighbourhood , on_delete=models.CASCADE , related_name="neighbourhood" ,
-                                        null=True , blank=True )
 
-    def create_user_profile(sender , instance , created , **kwargs):
-        if created:
-            Profile.objects.create( user=instance )
+
+    def __str__(self):
+        return self.bio
 
     def save_profile(self):
         self.save( )
@@ -241,32 +238,33 @@ class Profile( models.Model ):
         self.delete( )
 
     @classmethod
-    def search_users(cls , search_term):
-        profiles=cls.objects.filter( user__username__icontains=search_term )
-        return profiles
+    def get_profile(cls):
+        profile=Profile.objects.all()
+        return profile
 
-    @property
-    def image_url(self):
-        if self.profile_pic and hasattr( self.profile_pic , 'url' ):
-            return self.profile_pic.url
+    @classmethod
+    def find_profile(cls , search_term):
+        profile=cls.objects.filter( user__username__icontains=search_term )
+        return profile
 
-    def __str__(self):
-        return self.user.username
+
+
 
 
 class Project( models.Model ):
-    title=models.TextField( max_length=200 , null=True , blank=True , default="title" )
+    title=models.CharField( max_length=20, null=True , blank=True , )
     project_image=models.ImageField( upload_to='project/' , null=True , blank=True )
-    description=models.TextField( )
-    user=models.ForeignKey( User , on_delete=models.CASCADE , related_name="neighbourhoodproject" , null=True ,
-                            blank=True )
-    neighbourhood=models.ForeignKey( Neighbourhood , on_delete=models.CASCADE , related_name="neighbourhoodproject" ,
-                                     null=True , blank=True )
+    post=models.TextField( max_length=50000000)
+    user=models.ForeignKey( User , on_delete=models.CASCADE , related_name="neighbourhoodproject" , null=True ,blank=True )
+    neighbourhood=models.ForeignKey( Neighbourhood , on_delete=models.CASCADE , related_name="neighbourhoodproject" ,null=True , blank=True )
     postDate=models.DateTimeField( auto_now_add=True)
     location=models.ForeignKey( Location , on_delete=models.CASCADE,null=True )
     comment=models.ForeignKey( Comments ,on_delete=models.CASCADE, null=True )
     profile=models.ForeignKey( Profile , on_delete=models.CASCADE,null=True )
     review=models.ForeignKey( Review , on_delete=models.CASCADE,null=True )
+
+    def get_absolute_url(self):
+        return reverse( 'detail' , kwargs={'pk': self.pk} )
 
     def save_project(self):
         self.save( )
@@ -299,5 +297,9 @@ class Project( models.Model ):
     def __str__(self):
         return self.title
 
+
+class NewsLetterRecipients(models.Model):
+    name = models.CharField(max_length = 30)
+    email = models.EmailField()
 
 
