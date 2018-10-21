@@ -2,11 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="109b7088-0634-4d07-bbec-6a9a90fd1ca9" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../app/migrations/0002_join.py" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../app/templates/Hood/hood.html" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../app/templates/faq.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../app/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/../app/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/migrations/0001_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/../app/migrations/0001_initial.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../app/migrations/0002_auto_20181020_1335.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../app/migrations/0003_auto_20181020_1404.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../app/migrations/0004_auto_20181020_1415.py" beforeDir="false" />
@@ -134,11 +135,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../app/templates/home.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="506">
-              <caret line="224" column="90" selection-start-line="224" selection-start-column="90" selection-end-line="224" selection-end-column="90" />
+            <state relative-caret-position="1364">
+              <caret line="215" column="35" lean-forward="true" selection-start-line="215" selection-start-column="35" selection-end-line="215" selection-end-column="35" />
               <folding>
                 <element signature="n#style#0;n#img#0;n#a#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#footer#0;n#!!top" expanded="true" />
                 <element signature="e#8847#8855#0" expanded="true" />
@@ -168,11 +169,16 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/../app/templates/Hood/detail.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="414">
-              <caret line="118" column="32" selection-start-line="118" selection-start-column="32" selection-end-line="118" selection-end-column="32" />
+            <state relative-caret-position="234">
+              <caret line="9" column="94" selection-start-line="9" selection-start-column="94" selection-end-line="9" selection-end-column="94" />
+              <folding>
+                <element signature="n#style#0;n#ul#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#form#0;n#td#6;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="e#3075#3081#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -232,11 +238,11 @@
         <option value="$PROJECT_DIR$/../app/admin.py" />
         <option value="$PROJECT_DIR$/../app/models.py" />
         <option value="$PROJECT_DIR$/../app/templates/Hood/index.html" />
-        <option value="$PROJECT_DIR$/../app/templates/Hood/detail.html" />
         <option value="$PROJECT_DIR$/../app/urls.py" />
         <option value="$PROJECT_DIR$/../app/views.py" />
         <option value="$PROJECT_DIR$/../app/templates/faq.html" />
         <option value="$PROJECT_DIR$/../app/templates/home.html" />
+        <option value="$PROJECT_DIR$/../app/templates/Hood/detail.html" />
       </list>
     </option>
   </component>
@@ -324,7 +330,7 @@
       <window_info id="Favorites" order="0" side_tool="true" />
       <window_info content_ui="combo" id="Project" order="1" weight="0.23606168" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" order="0" visible="true" weight="0.18430035" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="0" visible="true" weight="0.18430035" />
       <window_info anchor="bottom" id="Event Log" order="1" side_tool="true" />
       <window_info anchor="bottom" id="Python Console" order="2" />
       <window_info anchor="bottom" id="Message" order="3" />
@@ -568,13 +574,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../app/templates/Hood/detail.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="414">
-          <caret line="118" column="32" selection-start-line="118" selection-start-column="32" selection-end-line="118" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../app/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="286">
@@ -604,11 +603,23 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/../app/templates/home.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="506">
-          <caret line="224" column="90" selection-start-line="224" selection-start-column="90" selection-end-line="224" selection-end-column="90" />
+        <state relative-caret-position="1364">
+          <caret line="215" column="35" lean-forward="true" selection-start-line="215" selection-start-column="35" selection-end-line="215" selection-end-column="35" />
           <folding>
             <element signature="n#style#0;n#img#0;n#a#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#footer#0;n#!!top" expanded="true" />
             <element signature="e#8847#8855#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../app/templates/Hood/detail.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="9" column="94" selection-start-line="9" selection-start-column="94" selection-end-line="9" selection-end-column="94" />
+          <folding>
+            <element signature="n#style#0;n#ul#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#form#0;n#td#6;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="e#3075#3081#0" expanded="true" />
           </folding>
         </state>
       </provider>
