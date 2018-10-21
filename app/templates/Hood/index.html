@@ -8,26 +8,20 @@
     <div class="row">
         <div class="col-sm-12">
              </div>
-    {% for project in all_project %}
+    {% for neyba in all_neighbourhood %}
     <div class="col-md-12 sm-12 col-lg-12">
                     <div class="thumbnail">
-                        <a href="{% url 'detail' project.id %}">
-                            {% if user.project.project_image %}
-                             <img src="{{project.project_image.url}}" class="img-responsive">
-                        {% else %}
-                        <h1>no image to display</h1>
+                        <a href="{% url 'detail' neyba.id %}">
+                        <h1>{{ neyba.name }}</h1>
                         </a>
-                        {% endif %}
                         <div class="caption">
-                            <h2>{{ project.title }}</h2>
-                            <h4>{{ project.post}}</h4>
+                            <h2>{{ neyba.location }} {{ neyba.population}} </h2>
                             <br>
                             <div class="footer">
-                            <h4>{{ project.review}}</h4>
                             </div>
 
                              <!-- View Details -->
-                             <a href="{% url 'detail' project.id %}" class="btn btn-primary btn-sm" role="button">View Details</a>
+                             <a href="{% url 'detail' neyba.id %}" class="btn btn-primary btn-sm" role="button">View Details</a>
 
                             <!-- Delete Album -->
                             <form action="" method="post" style="display: inline;">

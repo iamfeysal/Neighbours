@@ -1,4 +1,4 @@
-{% block title %}{{ project }}{% endblock %}
+{% block title %}{{ neyba }}{% endblock %}
 {% block albums_active %}active{% endblock %}
 
 {% block body %}
@@ -8,87 +8,115 @@
     <link rel="stylesheet" type="text/css" href=""/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-<div class="container-fluid songs-container">
-
-    <div class="row">
-
-        <!-- Left Album Info -->
-        <div class="col-sm-4 col-md-3">
-            <div class="panel panel-default">
-                <div class="panel-body">
-                    <a href="">
-                         {% if user.project.project_image %}
-                             <img src="{{project.project_image.url}}" class="img-responsive">
-                    </a>
-                        {% else %}
-                        <h1>no image to display</h1>
-                        {% endif %}
-                    </a>
-                    <h1>{{ project.title }} <small>{{ project.postDate }}</small></h1>
-                    <h2>{{ album.user }}</h2>
-                </div>
-            </div>
-        </div>
-
-        <!-- Right details Info -->
-        <div class="col-sm-8 col-md-9">
-
-            <ul class="nav nav-pills" style="margin-bottom: 10px;">
-                <li role="presentation" class="active"><a href="">View All</a></li>
-                <li role="presentation"><a href="">Add New Project</a></li>
-            </ul>
-
-            <div class="panel panel-default">
-                <div class="panel-body">
-
-                    <h3>All Details</h3>
-
-                    {% if error_message %}
-                        <p><strong>{{ error_message }}</strong></p>
-                    {% endif %}
-
-                    <table class="table">
-                        <thead>
-                        <tr>
-                            <th>username</th>
-                            <th>Neighbour</th>
-                             <th>location</th>
-                            <th>postDate</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>{{ project.user }}</td>
-                                <td>{{ project.neighbourhood }}</td>
-                                <td>{{ project.profile }}</td>
-                                <td>{{ project.location }}</td>
-                                <td>{{ project.postDate }}</td>
 
 
-                                <td>
 
-                                </td>
-                                <td>
-                                    <br>
-                                    <form action="" method="post" style="display: inline;">
-                                        {% csrf_token %}
-                                        <input type="hidden" name="song_id" value="{{ song.id }}" />
-                                        <button type="submit" class="btn btn-danger btn-xs">
-                                            <span class="glyphicon glyphicon-remove"></span>&nbsp; Delete
-                                        </button>
-                                    </form>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-
-                </div>
-            </div>
-
-        </div>
-
+<div class="container">
+  <div class="columns" id="nymph-profile-general-info">
+    <div class="column is-3">
+      <figure class="image is-256x256"><img src="http://via.placeholder.com/256x256"/></figure>
     </div>
-
+    <div class="column is-9">
+      <p><span class="title">Mai Mắt Nai</span></p>
+      <hr/>
+      <p class="subtitle">Tên đầy đủ: Nguyễn Thị Tuyết Mai</p>
+      <p class="subtitle">Quốc gia: Việt Nam</p>
+      <div class="field is-grouped">
+        <p class="control"><span class="button is-danger is-outlined"><span class="icon"><i class="fa fa-heart"></i></span></span></p>
+        <p class="control"><span class="button is-info is-outlined"><span class="icon"><i class="fa fa-share"></i></span></span></p>
+        <p class="control">
+          <div class="dropdown is-hoverable">
+            <div class="dropdown-trigger">
+              <button class="button is-outlined is-dark" aria-haspopup="true" aria-controls="dropdown-menu4"><span class="icon"><i class="fa fa-bars" aria-hidden="true"></i></span></button>
+            </div>
+            <div class="dropdown-menu" id="dropdown-menu4" role="menu">
+              <div class="dropdown-content">
+                <div class="dropdown-item">
+                  <p><span class="icon is-small"><i class="fa fa-pencil" aria-hidden="true"></i></span> Cập nhật thông tin</p>
+                  <p><span class="icon is-small"><i class="fa fa-flag" aria-hidden="true"></i></span> Báo cáo cho admin</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </p>
+      </div>
+      <p><span class="icon"><i class="fa fa-facebook"></i></span><span><a>https://facebook.com/nguyenthituyetmai/</a></span></p>
+      <p><span class="icon"><i class="fa fa-instagram"></i></span><span><a>https://instagram.com/nguyenthituyetmai/</a></span></p>
+      <p><span class="icon"><i class="fa fa-twitter"></i></span><span><a>https://twitter.com/nguyenthituyetmai/</a></span></p><br/>
+      <div class="columns is-mobile">
+        <div class="column is-4 has-text-centered nymph girl-stat"><span class="title is-5">16K</span><span class="icon"><i class="fa fa-rss"></i></span></div>
+        <div class="column is-4 has-text-centered nymph girl-stat"><span class="title is-5">6K</span><span class="icon"><i class="fa fa-gratipay"></i></span></div>
+        <div class="column is-4 has-text-centered nymph girl-stat"><span class="title is-5">4,5</span><span class="icon"><i class="fa fa-star"></i></span></div>
+      </div>
+    </div>
+  </div>
+  <div class="columns">
+    <div class="column">
+      <div class="tabs is-centered is-fullwidth is-medium">
+        <ul>
+          <li class="is-active"><a><span class="icon is-medium"><i class="fa fa-image"></i></span><span>Ảnh</span></a></li>
+          <li><a><span class="icon is-medium"><i class="fa fa-info-circle"></i></span><span>Thông Tin</span></a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="columns is-centered">
+    <div class="column is-9 is-narrow">
+      <div class="columns">
+        <div class="column is-4">
+          <figure class="image is-256x256"><img src="http://bulma.io/images/placeholders/256x256.png"/></figure>
+        </div>
+        <div class="column is-4">
+          <figure class="image is-256x256"><img src="http://bulma.io/images/placeholders/256x256.png"/></figure>
+        </div>
+        <div class="column is-4">
+          <figure class="image is-256x256"><img src="http://bulma.io/images/placeholders/256x256.png"/></figure>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="columns is-centered">
+    <div class="column is-9 is-narrow">
+      <div class="columns">
+        <div class="column is-4">
+          <figure class="image is-256x256"><img src="http://bulma.io/images/placeholders/256x256.png"/></figure>
+        </div>
+        <div class="column is-4">
+          <figure class="image is-256x256"><img src="http://bulma.io/images/placeholders/256x256.png"/></figure>
+        </div>
+        <div class="column is-4">
+          <figure class="image is-256x256"><img src="http://bulma.io/images/placeholders/256x256.png"/></figure>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
+<style>
+    #nymph-profile-general-info {
+  background: #FFF;
+}
+.nymph.girl-stat {
+  background: #F9CDAD;
+  border-right: 1px solid #FFF;
+}
+
+</style>
+<script>
+
+// Nút yêu thích
+function heartClick() {
+  let target = $(this).children()
+  if ( target.hasClass("fa-heart") ) {
+    target.removeClass("fa-heart");
+    target.addClass("fa-heart-o");
+  }
+  else {
+    target.removeClass("fa-heart-o");
+    target.addClass("fa-heart");
+  }
+}
+
+$('#love-btn').click(heartClick)
+</script>
 
 {% endblock %}

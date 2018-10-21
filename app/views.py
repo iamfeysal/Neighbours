@@ -12,14 +12,16 @@ from .models import *
 
 def home(request):
     return render( request , 'home.html')
+def faq(request):
+    return render( request , 'faq.html')
 class IndexView(generic.ListView):
     template_name = 'Hood/index.html'
-    context_object_name = 'all_project'
+    context_object_name = 'all_neighbourhood'
 
     def get_queryset(self):
-        return Project.objects.all( )
+        return Neighbourhood.objects.order_by('name')
 class DetailView(generic.DetailView):
-    model = Project
+    model = Neighbourhood
     template_name = 'Hood/detail.html'
 
 
