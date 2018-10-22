@@ -4,7 +4,6 @@
     <list default="true" id="109b7088-0634-4d07-bbec-6a9a90fd1ca9" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../neighbours/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/../neighbours/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../requirements.txt" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -51,6 +50,7 @@
     <session id="-1631456386">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
+          <entry key="project.closed" value="1" />
           <entry key="project.open.time.36" value="1" />
           <entry key="project.open.time.79" value="1" />
           <entry key="project.opened" value="2" />
@@ -60,7 +60,7 @@
         <counts>
           <entry key="html" value="962" />
           <entry key="js" value="4" />
-          <entry key="py" value="341" />
+          <entry key="py" value="342" />
           <entry key="txt" value="1" />
         </counts>
       </usages-collector>
@@ -69,7 +69,7 @@
           <entry key="HTML" value="962" />
           <entry key="JavaScript" value="4" />
           <entry key="PLAIN_TEXT" value="1" />
-          <entry key="Python" value="341" />
+          <entry key="Python" value="342" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -155,8 +155,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/../neighbours/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="104">
-              <caret line="34" selection-start-line="34" selection-end-line="34" />
+            <state relative-caret-position="78">
+              <caret line="33" column="25" selection-start-line="33" selection-start-column="25" selection-end-line="33" selection-end-column="25" />
             </state>
           </provider>
         </entry>
@@ -317,14 +317,22 @@
     </task>
     <servers />
   </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
   <component name="ToolWindowManager">
     <frame x="1029" y="48" width="866" height="1032" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.23606168" />
+      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.23606168" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" order="0" visible="true" weight="0.18430035" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="0" visible="true" weight="0.18430035" />
       <window_info anchor="bottom" id="Event Log" order="1" side_tool="true" />
       <window_info anchor="bottom" id="Python Console" order="2" />
       <window_info anchor="bottom" id="Message" order="3" />
@@ -334,7 +342,7 @@
       <window_info anchor="bottom" id="Debug" order="7" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="8" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="9" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="10" />
+      <window_info anchor="bottom" id="TODO" order="10" weight="0.32992035" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -614,8 +622,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/../neighbours/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="104">
-          <caret line="34" selection-start-line="34" selection-end-line="34" />
+        <state relative-caret-position="78">
+          <caret line="33" column="25" selection-start-line="33" selection-start-column="25" selection-end-line="33" selection-end-column="25" />
         </state>
       </provider>
     </entry>
