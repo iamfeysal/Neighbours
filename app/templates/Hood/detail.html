@@ -15,16 +15,10 @@
         <div class="col-sm-4 col-md-3">
             <div class="panel panel-default">
                 <div class="panel-body">
-                    <a href="">
-                         {% if user.project.project_image %}
-                             <img src="{{project.project_image.url}}" class="img-responsive">
-                    </a>
-                        {% else %}
-                        <h1>no image to display</h1>
-                        {% endif %}
-                    </a>
-                    <h1>{{ project.title }} <small>{{ project.postDate }}</small></h1>
-                    <h2>{{ album.user }}</h2>
+                    <a href="{% url 'detail' neighbourhood.id %}">                            {{ neyba.name }}
+                        </a>
+                    <h1> <small>{{ neighbourhood.name }}</small></h1>
+                    <h2>{{ neighbourhood.description }}</h2>
                 </div>
             </div>
         </div>
@@ -34,7 +28,9 @@
 
             <ul class="nav nav-pills" style="margin-bottom: 10px;">
                 <li role="presentation" class="active"><a href="">View All</a></li>
-                <li role="presentation"><a href="">Add New Project</a></li>
+                <li role="presentation"><a href="{% url 'project-add' %}">Create Project</a></li>
+                <li role="presentation"><a href="{% url 'business-add' %}">Create Business</a></li>
+
             </ul>
 
             <div class="panel panel-default">
@@ -49,19 +45,18 @@
                     <table class="table">
                         <thead>
                         <tr>
-                            <th>username</th>
-                            <th>Neighbour</th>
-                             <th>location</th>
-                            <th>postDate</th>
+                            <th>name</th>
+                            <th>location</th>
+                             <th>population</th>
+                            <th>Members</th>
                         </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td>{{ project.user }}</td>
-                                <td>{{ project.neighbourhood }}</td>
-                                <td>{{ project.profile }}</td>
-                                <td>{{ project.location }}</td>
-                                <td>{{ project.postDate }}</td>
+                                <td>{{ neighbourhood.name }}</td>
+                                <td>{{ neighbourhood.location }}</td>
+                                <td>{{ neighbourhood.population }}</td>
+                                <td>{{ neighbourhood.users.|length}}</td>
 
 
                                 <td>

@@ -23,6 +23,7 @@ class Neighbourhood( models.Model ):
     )
 
     name=models.CharField( max_length=300 , null=True )
+    description=models.CharField(max_length=500 , null=True)
     location=models.CharField( max_length=100 , choices=CITY_CHOICES )
     population=models.IntegerField( )
     user=models.ForeignKey( User )
@@ -48,12 +49,15 @@ class Neighbourhood( models.Model ):
 class Business( models.Model ):
     business_name=models.CharField( max_length=30 , null=True )
     user=models.ForeignKey( User , on_delete=models.CASCADE , null=True , related_name="business" )
-    neighbourhood=models.ForeignKey( Neighbourhood , on_delete=models.CASCADE , related_name="neighbourhoodbusiness" ,
-                                     null=True , blank=True )
+    neighbourhood=models.ForeignKey( Neighbourhood )
     email_address=models.CharField( max_length=200 , null=True )
 
     def __str__(self):
         return self.business_name
+
+    def get_absolute_url(self):
+        return reverse( 'detail' , kwargs={'pk': self.pk} )
+
 
     def save_business(self):
         self.save( )
@@ -136,6 +140,9 @@ class Project( models.Model ):
     body=models.TextField( )
     user=models.ForeignKey( User )
     neighbourhood=models.ForeignKey( Neighbourhood )
+
+    def get_absolute_url(self):
+        return reverse( 'detail' , kwargs={'pk': self.pk} )
 
     def save_projects(self):
         self.save( )

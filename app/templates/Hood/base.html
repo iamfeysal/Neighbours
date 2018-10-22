@@ -12,34 +12,50 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 </head>
-<nav class="navbar navbar-inverse">
-      <div class="col-sm-6 col-md-6">
-          {% if user.is_authenticated %}
-    <div class="container-fluid">
-
-        <!-- Header -->
-       <nav id="primary_nav">
-<a href="#" id="mobile_nav">&#9776;</a>
-		<ul>
-			<li> <a href="{%url 'index'%}">Home</a></li>
-             <li>
-                    <a href="/accounts/password/change">Change Password</a>
-                  </li>
-             <li>
-                    <a href="/logout">Logout</a>
-                  </li>
-            		</ul>
-            <li>
-              <a class='btn btn-default' href="/accounts/login">Login</a>
-            </li>
-
-            {% endif %}
-          </div>
-	</nav>
+<nav class="navbar navbar-default" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <a href="#" class="navbar-brand">Logo</a>
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-responsive-65">
+        <span class="sr-only"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
     </div>
+    <div class="collapse navbar-collapse" id="navbar-responsive-65">
+      <div class="navbar-left">
+        <nav>
+          <ul class="nav navbar-nav">
+            <li>
+              <a href="{% url 'neighbourhood-add' %}">Create Neighbourhood
+              </a>
+            </li>
+            <li>
+              <a href="{% url 'project-add' %}">Create Project
+            </li>
+            <li>
+              <a href="#">Link 3</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+      <div class="navbar-right">
+        <form class="search-form searchbar" role="search" id="hiddenSearchBox" action="" method="get">
+          <div class="input-group">
+            <input type="hidden" name="id" value="63">
+            <input type="search" name="keywords" class="form-control" placeholder="Search..">
+            <div class="input-group-btn">
+              <button type="submit" class="btn btn-default" data-toggle="searchbar" data-target="#hiddenSearchBox">
+                <span class="glyphicon glyphicon-search"></span> <span class="sr-only">Submit</span>
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
 </nav>
-<section>
-</section>
 {% block body %}
 {% endblock %}
 
@@ -47,104 +63,267 @@
 
 </body>
 <style>
-@import url(https://fonts.googleapis.com/css?family=Poiret+One);
-body{
-  margin:0;
-  padding:0;
-  font-family: 'Helvetica';
+/**
+ * NAVBAR SEARCH
+ */
+.navbar .search-form {
+  float: right;
+  margin: 0;
+  padding: 0;
+  margin-top: 10px;
 }
-h1, h3{
-  font-family: 'Poiret One', cursive;
+.navbar .search-form .input-group {
+  display: block;
+  padding-right: 30px;
+  width: 30px;
+  overflow: hidden;
+  border-left: 2px solid transparent;
+  transition: all 0.2s ease-in-out;
 }
-section{
-  width:70%;
-  margin-left:200px;
+.navbar .search-form.open .input-group {
+  border-left: 2px solid #5F5F5F;
+  transition: all 0.2s ease-in-out;
 }
-#navbar{
-  overflow:hidden;
-	  width:200px;
-	  height:100%;
-	  position:fixed;
-	  background-color:#FFFFFF;
-	  top:0;
-	  left:0;
-	  z-index:499;
+.navbar .search-form .form-control,
+.navbar .search-form .form-control:focus {
+  /*color:#fff;*/
+  height: 30px;
+  padding: 6px 12px 0;
+  border-radius: 0;
+  box-shadow: none;
+  font-size: 16px;
+  background-color: transparent;
+  border-color: transparent;
 }
-#primary_nav{
-	  top:0px;
-	  position: fixed;
-	  display: block;
-	  left: -115px;
-	  width: 170px;
-	  height: 100%;
-	  background:rgba(43,150,182,.33);
-	  z-index:500;
+.navbar .search-form .input-group-btn {
+  display: block;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 30px;
+  height: 30px;
+  z-index: 2;
 }
-#primary_nav ul{
-	  display: block;
-	  margin-top:80px;
-	  padding-left: 5px;
-	  list-style: none;
+.navbar .search-form .input-group-btn .icon {
+  position: relative;
+  bottom: -3px;
+  left: -1px;
+  font-size: 16px;
 }
-#primary_nav ul li a{
-	  display: block;
-	  padding:0 0 25px 20px;
-	  color: #FFF;
-	  font-weight:bold;
-	  font-size:15px;
-	  text-decoration: none;
-  	-webkit-transition: all 0.2s ease;
-  -moz-transition: all 0.2s ease;
-  -o-transition: all 0.2s ease;
-  -ms-transition: all 0.2s ease;
-  transition: all 0.2s ease;
+.navbar .search-form .btn {
+  padding: 5px 8px;
+  border-radius: 0;
+  /*color:#fff;*/
+  background-color: transparent;
+  border: 1px solid transparent;
+  transition: all 0.2s ease-in-out;
 }
-#primary_nav ul li a:hover, #primary_nav ul li a:active{
-	  color: #434244;
-	  padding-left:17px;
-  	text-decoration: none;
-	  -webkit-transition: all 0.2s ease;
-  -moz-transition: all 0.2s ease;
-  -o-transition: all 0.2s ease;
-  -ms-transition: all 0.2s ease;
-  transition: all 0.2s ease;
+.navbar .search-form .btn:active,
+.navbar .search-form .btn:hover,
+.navbar .search-form .btn:focus,
+.navbar .search-form.open .btn {
+  color: #fff;
+  background-color: #5F5F5F;
+  border: 1px solid #5F5F5F;
+  transition: all 0.2s ease-in-out;
+  outline: none;
+  outline: 0px auto -webkit-focus-ring-color;
+  outline-offset: 0;
 }
-#mobile_nav{
-	  font-size:36px;
-	  position: relative;
-	  display: inline-block;
-  	top:10px;
-	  left:127px;
-  color: #FFF;
-	  text-decoration: none;
-  z-index:1000;
+.navbar .search-form.open .input-group {
+  width: 145px;
+  transition: width 0.3s ease-in-out;
 }
-#mobile_nav:hover{
-  	color: #434244;
+:-ms-input-placeholder {
+  color: #555 !important;
 }
+::-moz-placeholder {
+  color: #555 !important;
+}
+:-moz-placeholder {
+  color: #555 !important;
+}
+::-webkit-input-placeholder {
+  color: #555 !important;
+}
+@media (max-width: 767px) {
+  .navbar .search-form {
+    float: none;
+    margin-top: 0px;
+    padding: 14px 0;
+  }
+  .navbar .search-form .input-group,
+  .navbar .search-form.open .input-group {
+    width: auto;
+    transition: none;
+    border-left: 2px solid #5F5F5F;
+  }
+  .navbar .search-form .btn {
+    background-color: #5F5F5F;
+    border: 1px solid #5F5F5F;
+    transition: none;
+  }
+  :-ms-input-placeholder {
+    color: #555 !important;
+    text-transform: uppercase;
+  }
+  ::-moz-placeholder {
+    color: #555 !important;
+    text-transform: uppercase;
+  }
+  :-moz-placeholder {
+    color: #555 !important;
+    text-transform: uppercase;
+  }
+  ::-webkit-input-placeholder {
+    color: #555 !important;
+    text-transform: uppercase;
+  }
+}
+@media (min-width: 768px) and (max-width: 780px) {
+  .navbar .search-form.open .input-group {
+    width: 135px;
+  }
+}
+@media (min-width: 980px) {
+  .navbar .search-form.open .input-group {
+    width: 230px;
+  }
+}
+@media (min-width: 1300px) {
+  .navbar .search-form .input-group-btn {
+    width: 32px;
+    height: 32px;
+  }
+  .navbar .search-form .input-group-btn .icon {
+    font-size: 18px;
+  }
+  .navbar .search-form .form-control,
+  .navbar .search-form .form-control:focus {
+    height: 32px;
+  }
+  .navbar .search-form .input-group {
+    padding-right: 32px;
+    width: 32px;
+  }
+}
+
 </style>
     <script>
-    $(document).ready(function(){
-	$("#mobile_nav").click(function(){
 
-    //toggles nav and ensures other elements play nice too
-		if($("#primary_nav").css('left') < "0px"){
-			$("#primary_nav").animate({left: "0px"}, 200);
-			$("#wrapper_main_content").animate({left: "150px"}, 200);
-			$("#wrapper_main_content").css("overflow-y","hidden");
-			$("body").css("overflow-x","hidden");
-			$("#primary_nav").css("overflow-y","hidden");
-		}else{
-			$("#primary_nav").animate({left: "-115px"}, 200);
-			$("#wrapper_main_content").animate({left: "0px"}, 200);
-			$("#wrapper_main_content").css("overflow-y","hidden");
-			$("body").css("overflow-x","hidden");
+if (typeof jQuery === "undefined") { throw new Error("jQuery required"); }
 
-		}
++function ($) {
+  'use strict';
 
-	});
+  // SEARCHBAR CLASS DEFINITION
+  // =========================
 
-});//end
+  var backdrop = '.searchbar-backdrop';
+  var toggle   = '[data-toggle="searchbar"]';
+  var Searchbar = function (element) {
+    $(element).on('click.mr.searchbar', this.toggle);
+  };
+
+  Searchbar.VERSION = '1.0.0';
+
+  Searchbar.prototype.toggle = function (e) {
+    var $this = $(this);
+
+    if ($this.is('.disabled, :disabled')) return;
+
+    var $parent  = getParent($this);
+    var isActive = $parent.hasClass('open') || (typeof isXS == 'function' && isXS());
+
+    if (!isActive) {
+
+      clearMenus();
+      if ('ontouchstart' in document.documentElement && !$parent.closest('.navbar-nav').length) {
+        // if mobile we use a backdrop because click events don't delegate
+        $('<div class="searchbar-backdrop"/>').insertAfter($(this)).on('click', clearMenus);
+      }
+
+      var relatedTarget = { relatedTarget: this };
+      $parent.trigger(e = $.Event('show.mr.searchbar', relatedTarget));
+
+      if (e.isDefaultPrevented()) return;
+      e.preventDefault();
+
+      $parent.find('input').trigger('focus');
+
+      $parent
+        .toggleClass('open')
+        .trigger('shown.mr.searchbar', relatedTarget);
+
+        return false;
+    }
+  };
+
+  function clearMenus(e) {
+    if (e && e.which === 3) return
+    $(backdrop).remove();
+    $(toggle).each(function () {
+      var $parent = getParent($(this));
+      var relatedTarget = { relatedTarget: this };
+      if (!$parent.hasClass('open')) return;
+      $parent.trigger(e = $.Event('hide.mr.searchbar', relatedTarget));
+      if (e.isDefaultPrevented()) return;
+      $parent.removeClass('open').trigger('hidden.mr.searchbar', relatedTarget);
+    });
+  }
+
+  function getParent($this) {
+    var selector = $this.attr('data-target');
+
+    if (!selector) {
+      return $this.parents('form');
+    }
+
+    var $parent = selector && $(selector);
+
+    return $parent && $parent.length ? $parent : $this.parent();
+  }
+
+
+  // SEARCHBAR PLUGIN DEFINITION
+  // ==========================
+
+  function Plugin(option) {
+    return this.each(function () {
+      var $this = $(this);
+      var data  = $this.data('mr.searchbar');
+
+      if (!data) $this.data('mr.searchbar', (data = new Searchbar(this)));
+      if (typeof option == 'string') data[option].call($this);
+    });
+  }
+
+  var old = $.fn.searchbar;
+
+  $.fn.searchbar             = Plugin;
+  $.fn.searchbar.Constructor = Searchbar;
+
+
+  // SEARCHBAR NO CONFLICT
+  // ====================
+
+  $.fn.searchbar.noConflict = function () {
+    $.fn.searchbar = old;
+    return this;
+  };
+
+
+  // APPLY TO STANDARD SEARCHBAR ELEMENTS
+  // ===================================
+
+  $(document)
+    .on('click.mr.searchbar.data-api', clearMenus)
+    .on('click.mr.searchbar.data-api', '.searchbar', function (e) { e.stopPropagation(); })
+    //.on('focus.mr.searchbar.data-api', toggle, Searchbar.prototype.toggle) // this causes the focus event to trigger twice
+    .on('click.mr.searchbar.data-api', toggle, Searchbar.prototype.toggle);
+
+
+}(jQuery);
 </script>
 
 </html>
