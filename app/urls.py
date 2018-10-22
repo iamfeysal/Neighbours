@@ -14,16 +14,18 @@ urlpatterns=[
     # /app/neighbourhood/add/
     url( r'neighbourhood/add/$' , views.NeighbourhoodCreate.as_view( ) , name='neighbourhood-add' ) ,
     # /app/project/add/
-    url( r'project/add/$' , views.ProjectCreate.as_view( ) , name='project-add' ) ,
+    url( r'project/add/$', views.ProjectCreate.as_view(), name='project-add'),
     # /app/business/add/
-    url( r'business/add/$', views.BusinessCreate.as_view( ) , name='business-add' ) ,
-
+    url( r'business/add/$' , views.BusinessCreate.as_view(), name='business-add'),
     # /app/neighbourhood/3/delete
-    url( r'neighbourhood/(?P<pk>[0-9]+)/delete/$', views.NeighbourhoodDelete.as_view( ) , name='neighbourhood-delete' ) ,
-
+    url( r'neighbourhood/(?P<pk>[0-9]+)/delete/$', views.NeighbourhoodDelete.as_view(),name='neighbourhood-delete'),
     # /app/project/2/delete
-    url( r'project/(?P<pk>[0-9]+)/delete/$' , views.ProjectDelete.as_view( ) , name='project-delete' ) ,
+    url( r'project/(?P<pk>[0-9]+)/delete/$', views.ProjectDelete.as_view( ) , name='project-delete'),
 
+    # /app/neighbourhood/2/update
+    url( r'neighbourhood/(?P<pk>[0-9]+)/$' , views.NeighbourhoodUpdate.as_view( ) , name='neighbourhood-update' ) ,
+    # /app/project/2/update
+    url( r'project/(?P<pk>[0-9]+)/$' , views.ProjectUpdate.as_view( ) , name='project-update' ) ,
 ]
 if settings.DEBUG:
     urlpatterns+=static( settings.MEDIA_URL , document_root=settings.MEDIA_ROOT )

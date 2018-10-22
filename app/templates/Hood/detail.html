@@ -64,9 +64,9 @@
                                 </td>
                                 <td>
                                     <br>
-                                    <form action="" method="post" style="display: inline;">
+                                    <form action="{% url 'neighbourhood-delete' neighbourhood.id %}" method="post" style="display: inline;">
                                         {% csrf_token %}
-                                        <input type="hidden" name="song_id" value="{{ song.id }}" />
+                                        <input type="hidden" name="song_id" value="{{ neighbourhood.id }}" />
                                         <button type="submit" class="btn btn-danger btn-xs">
                                             <span class="glyphicon glyphicon-remove"></span>&nbsp; Delete
                                         </button>
@@ -84,5 +84,56 @@
     </div>
 
 </div>
+<div class="container">
+
+    <!-- Albums -->
+    <div class="row">
+        <div class="col-sm-12">
+             </div>
+    {% if project %}
+            {% for project in project %}
+    <div class="col-md-6 sm-6 col-lg-6">
+                    <div class="thumbnail">
+                        <a href="{% url 'detail' project.id %}">
+                            {{ project.title }}
+                              </a>
+                        <div class="caption">
+                            <br>
+                            <div class="footer">
+                                {{ project.body }}
+                            </div>
+                        </div>
+                         {% endfor %}
+                    </div>
+        {% else %}
+       <h1 class="text-center">Projects</h1>
+       <h1>No projects</h1>
+       {% endif %}
+    </div>
+    </div>
+</div>
+    {% if business %}
+            {% for business in business %}
+        <div class="col-md-12 sm-12 col-lg-12">
+                    <div class="thumbnail">
+                        <a href="{% url 'detail' project.id %}">
+                            {{ business.business_name }}
+                              </a>
+                        <div class="caption">
+                            {{ business.email_address }}
+
+                            <br>
+                            <div class="footer">
+                                {{ business.email_address }}
+                            </div>
+                        </div>
+                         {% endfor %}
+                    </div>
+        {% else %}
+       <h1 class="text-center">Business</h1>
+       <h1>No Business yet</h1>
+       {% endif %}
+    </div>
+
 
 {% endblock %}

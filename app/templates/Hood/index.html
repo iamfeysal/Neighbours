@@ -4,7 +4,6 @@
 
 <div class="container">
 
-    <!-- Albums -->
     <div class="row">
         <div class="col-sm-12">
              </div>
@@ -15,30 +14,15 @@
                             {{ neyba.name }}
                               </a>
                         <div class="caption">
-                            <p>{{ neyba.description }}</p>
                             <br>
                             <div class="footer">
+                                {{ neyba.description }}
                             </div>
 
                              <!-- View Details -->
                              <a href="{% url 'detail' neyba.id %}" class="btn btn-primary btn-sm" role="button">View Details</a>
+                            <a href="{% url 'detail' neyba.id %}" class="btn btn-primary btn-sm" role="button">Join</a>
 
-                            <!-- Delete Album -->
-                            <form action="{% url 'neighbourhood-delete' neyba.id %}" method="post" style="display: inline;">
-                                {% csrf_token %}
-                                <input type="hidden" name="album_id" value="" />
-                                <button type="submit" class="btn btn-default btn-lg">
-                                    <span class="glyphicon glyphicon-trash"></span>
-                                </button>
-                            </form>
-                            <!--edit-album-->
-                            <form action="" method="post" style="display: inline;">
-                                {% csrf_token %}
-                                <input type="hidden" name="neighbours_id" value="" />
-                                <button type="submit" class="btn btn-default btn-lg">
-                                    <span class="glyphicon glyphicon-edit"></span>
-                                </button>
-                            </form>
                         </div>
                     </div>
                 </div>
@@ -49,6 +33,7 @@
         </div>
     </div>
 </div>
+
 
 <style>
 ul.errorlist {

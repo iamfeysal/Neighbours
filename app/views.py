@@ -27,11 +27,13 @@ def Index(request):
     date=dt.date.today( )
     profile=Profile.objects.all
     project=Project.objects.all()
+    business=Business.objects.all()
     neighbourhood=Neighbourhood.objects.all()
     return render( request , 'Hood/index.html' , {
         "profile": profile ,
         "neighbourhood":neighbourhood,
         "project": project ,
+        "business":business,
         "date":date,} )
 
 class DetailView( generic.DetailView ):
@@ -62,14 +64,14 @@ class BusinessCreate( CreateView ):
 
 class NeighbourhoodUpdate(UpdateView):
     model=Neighbourhood
-    template_name = 'music/album_form.html'
-    fields = ['artist', 'album_title','genre','album_logo']
+    template_name = 'Hood/neighbourhood_form.html'
+    fields = ['name', 'description','location','population']
 
 
 class ProjectUpdate(UpdateView):
     model=Project
-    template_name = 'music/album_form.html'
-    fields = ['artist', 'album_title','genre','album_logo']
+    template_name = 'Hood/project_form.html'
+    fields = ['title', 'body','neighbourhood']
 
 
 
