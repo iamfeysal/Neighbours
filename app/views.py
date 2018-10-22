@@ -37,29 +37,24 @@ def Index(request):
         "date":date,} )
 
 
-@login_required( login_url='/accounts/login/' )
 class DetailView( generic.DetailView ):
     model=Neighbourhood
     template_name='Hood/detail.html'
 
-@login_required( login_url='/accounts/login/' )
 class ProjectDetail(generic.DetailView):
     model=Project
     template_name = 'Hood/prodetail.html'
 
-@login_required( login_url='/accounts/login/' )
 class NeighbourhoodCreate( CreateView ):
     model=Neighbourhood
     template_name='Hood/neighbourhood_form.html'
     fields=['name' , 'description' , 'location' , 'population','user']
 
-@login_required( login_url='/accounts/login/' )
 class ProjectCreate( CreateView ):
     model=Project
     template_name='Hood/project_form.html'
     fields=['title' , 'body' , 'neighbourhood','user']
 
-@login_required( login_url='/accounts/login/' )
 class BusinessCreate( CreateView ):
     model=Business
     template_name='Hood/business_form.html'
@@ -72,7 +67,6 @@ class NeighbourhoodUpdate(UpdateView):
     fields = ['name', 'description','location','population']
 
 
-@login_required( login_url='/accounts/login/' )
 class ProjectUpdate(UpdateView):
     model=Project
     template_name = 'Hood/project_form.html'
@@ -80,13 +74,13 @@ class ProjectUpdate(UpdateView):
 
 
 
-@login_required( login_url='/accounts/login/' )
 class NeighbourhoodDelete(DeleteView):
     model=Neighbourhood
     success_url = reverse_lazy('index')
 
 
-@login_required( login_url='/accounts/login/' )
 class ProjectDelete(DeleteView):
     model=Project
     success_url = reverse_lazy('index')
+
+

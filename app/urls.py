@@ -7,6 +7,8 @@ urlpatterns=[
     # /app/
     url( '^$' , views.home , name='home' ) ,
     url( r'^index/$' , views.Index , name='index' ) ,
+    # /app/search/
+    url( r'^search/' , views.search , name='search' ) ,
     # /app/<project_id>/
     url( r'^(?P<pk>[0-9]+)/$' , views.DetailView.as_view( ) , name='detail' ) ,
     # /app/faq/
