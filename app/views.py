@@ -85,7 +85,7 @@ class ProjectDelete(DeleteView):
 def search(request):
     if request.GET['search']:
         search_term=request.GET.get( "search" )
-        hoods=Neighbourhood.objects.filter( user__username__icontains=search_term )
+        hoods=Neighbourhood.objects.filter(name__icontains=search_term )
         message=f"{search_term}"
 
         return render( request , 'Hood/search.html' , {"message": message , "hoods": hoods} )

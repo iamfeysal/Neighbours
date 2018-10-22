@@ -12,43 +12,61 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 </head>
-<nav class="navbar navbar-default" role="navigation">
-  <div class="container">
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-responsive-65">
-        <span class="sr-only"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
     </div>
-    <div class="collapse navbar-collapse" id="navbar-responsive-65">
-      <div class="navbar-left">
-        <nav>
-          <ul class="nav navbar-nav">
-            <li>
-              </a>
-            </li>
-            <a href="{% url 'neighbourhood-add' %}">Create Neighbourhood
-          </ul>
-        </nav>
-      </div>
-      <div class="navbar-right">
-        <form class="search-form searchbar" role="search" id="hiddenSearchBox" action="{% url 'search' %}" method="get">
-          <div class="input-group">
-            <input type="hidden" name="id" value="63">
-            <input type="search" name="keywords" class="form-control" placeholder="Search..">
-            <div class="input-group-btn">
-              <button type="submit" class="btn btn-default" data-toggle="searchbar" data-target="#hiddenSearchBox">
-                <span class="glyphicon glyphicon-search"></span> <span class="sr-only">Submit</span>
-              </button>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+
+      <ul class="nav navbar-nav navbar-right">
+          <form class="navbar-form navbar-left"  action="{% url 'search' %}">
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="Search" name = "search">
             </div>
-          </div>
-        </form>
-      </div>
-    </div>
-  </div>
+            <button type="submit" class="btn btn-default">Submit</button>
+          </form>
+
+        {% if user.is_authenticated %}
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{user.username | upper}}
+                          <span class="caret"></span>
+                      </a>
+                <ul class="dropdown-menu" role="menu">
+                  <li>
+                    <a href="{% url 'home' %}">Home</a>
+                  </li>
+                       <li>
+                    <a href="">Upload image</a>
+                  </li>
+                   <li>
+                    <a href="">Profile</a>
+                  </li>
+                  <li>
+                    <a href="">Account details </a>
+                  </li>
+
+                  <li>
+                    <a href="/logout">Logout</a>
+                  </li>
+                </ul>
+              </li>
+
+            {% else %}
+            <li>
+              <a  href="/accounts/login">Login</a>
+            </li>
+
+            {% endif %}
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
 </nav>
+
+<script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
 {% block body %}
 {% endblock %}
 
