@@ -82,5 +82,14 @@ class NeighbourhoodDelete(DeleteView):
 class ProjectDelete(DeleteView):
     model=Project
     success_url = reverse_lazy('index')
+def search(request):
+    if request.GET['search']:
+        search_term=request.GET.get( "search" )
+        hoods=Neighbourhood.objects.filter( user__username__icontains=search_term )
+        message=f"{search_term}"
 
+        return render( request , 'Hood/search.html' , {"message": message , "hoods": hoods} )
+    else:
+        message="You haven't searched for any item"
+        return render( request ,'search.html' , {"message": message} )
 
