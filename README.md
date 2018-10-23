@@ -3,6 +3,8 @@
 This a Django application that allow a user to keep in touch with everything that happens within their Neighborhood.
 ## Author
 **_`Feisal Ibrahim`_**
+## Link of the deployed site
+https://nyumba10.herokuapp.com/
 ## User Story/How it works
 1. A user is able to sign up or sign in into the application.
 2. A user can create a hood.
