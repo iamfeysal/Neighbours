@@ -157,8 +157,8 @@ USE_L10N = True
 
 USE_TZ = True
 
-LOGIN_REDIRECT='index'
-Register_REDIRECT='index'
+LOGIN_REDIRECT_URL='index'
+REGISTRATION_REDIRECT_URL='index'
 
 
 # Static files (CSS, JavaScript, Images)

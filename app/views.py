@@ -6,6 +6,7 @@ from django.contrib.auth import authenticate , login
 from django.views.generic import View
 from django.http import HttpResponse , Http404 , HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
+from .forms import UserForm
 from .models import *
 
 
@@ -19,7 +20,6 @@ def faq(request):
     return render( request , 'faq.html' )
 
 
-@login_required( login_url='/accounts/login/' )
 def Index(request):
     '''
     Method that fetches all images from all users.
@@ -35,7 +35,6 @@ def Index(request):
         "project": project ,
         "business":business,
         "date":date,} )
-
 
 class DetailView( generic.DetailView ):
     model=Neighbourhood
@@ -93,3 +92,35 @@ def search(request):
         message="You haven't searched for any item"
         return render( request ,'search.html' , {"message": message} )
 
+
+class UserForm(View):
+    form_class = UserForm
+    template_name = 'registration/registration_form.html'
+
+
+    #dislay blank form
+    def get(self, request):
+        form = self.form_class(None)
+        return render(request,self.template_name,{'form':form})
+
+    #process  form data
+    def post(self , request):
+        form = self.form_class(request.POST)
+
+        if form.is_valid():
+            user = form.save(commit=False)
+
+            # clean (normailized) data
+            username=form.cleaned_data['username']
+            password=form.cleaned_data['password']
+            user.set_password(password)
+            user.save()
+
+            # returns User object if credential are correct
+            user = authenticate(username=username,password=password)
+            if user is not None:
+                if user.is_active:
+                    login(request,user)
+                    return redirect('index')
+
+        return render( request , self.template_name , {'form': form} )
