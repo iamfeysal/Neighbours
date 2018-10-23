@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="109b7088-0634-4d07-bbec-6a9a90fd1ca9" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../README.md" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -66,7 +67,7 @@
           <entry key="Procfile" value="16" />
           <entry key="html" value="1641" />
           <entry key="js" value="4" />
-          <entry key="md" value="59" />
+          <entry key="md" value="160" />
           <entry key="py" value="1012" />
           <entry key="txt" value="1" />
         </counts>
@@ -75,7 +76,7 @@
         <counts>
           <entry key="HTML" value="1641" />
           <entry key="JavaScript" value="4" />
-          <entry key="Markdown" value="59" />
+          <entry key="Markdown" value="160" />
           <entry key="PLAIN_TEXT" value="17" />
           <entry key="Python" value="1012" />
         </counts>
@@ -161,8 +162,8 @@
         <entry file="file://$PROJECT_DIR$/../README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="26">
-                <caret line="1" column="3" selection-start-line="1" selection-start-column="3" selection-end-line="1" selection-end-column="3" />
+              <first_editor relative-caret-position="227">
+                <caret line="23" column="233" selection-start-line="23" selection-start-column="233" selection-end-line="23" selection-end-column="233" />
               </first_editor>
               <second_editor />
             </state>
@@ -326,6 +327,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="963" y="38" width="930" height="1056" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
       <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.21940464" />
@@ -659,8 +661,8 @@
     <entry file="file://$PROJECT_DIR$/../README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="26">
-            <caret line="1" column="3" selection-start-line="1" selection-start-column="3" selection-end-line="1" selection-end-column="3" />
+          <first_editor relative-caret-position="227">
+            <caret line="23" column="233" selection-start-line="23" selection-start-column="233" selection-end-line="23" selection-end-column="233" />
           </first_editor>
           <second_editor />
         </state>
