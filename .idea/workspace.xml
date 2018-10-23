@@ -68,7 +68,7 @@
           <entry key="html" value="1641" />
           <entry key="js" value="4" />
           <entry key="md" value="182" />
-          <entry key="py" value="1051" />
+          <entry key="py" value="1062" />
           <entry key="txt" value="1" />
         </counts>
       </usages-collector>
@@ -78,7 +78,7 @@
           <entry key="JavaScript" value="4" />
           <entry key="Markdown" value="182" />
           <entry key="PLAIN_TEXT" value="17" />
-          <entry key="Python" value="1051" />
+          <entry key="Python" value="1062" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -161,7 +161,7 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/../neighbours/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="405">
+            <state relative-caret-position="327">
               <caret line="159" column="22" lean-forward="true" selection-start-line="159" selection-start-column="22" selection-end-line="159" selection-end-column="22" />
               <folding>
                 <element signature="e#311#320#0" expanded="true" />
@@ -356,9 +356,9 @@
     <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.21940464" />
+      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.21940464" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" order="0" visible="true" weight="0.2978959" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="0" visible="true" weight="0.2978959" />
       <window_info anchor="bottom" id="Event Log" order="1" side_tool="true" />
       <window_info anchor="bottom" id="Python Console" order="2" />
       <window_info anchor="bottom" id="Message" order="3" />
@@ -686,7 +686,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/../neighbours/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
+        <state relative-caret-position="327">
           <caret line="159" column="22" lean-forward="true" selection-start-line="159" selection-start-column="22" selection-end-line="159" selection-end-column="22" />
           <folding>
             <element signature="e#311#320#0" expanded="true" />
